@@ -1,0 +1,62 @@
+table {
+  width: 80%;
+  margin: 40px auto;
+  background: rgb(131, 131, 240);
+  background-image: url("https://www.radfordmedicalpractice.co.uk/wp-content/uploads/sites/622/2022/02/travel.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 15px;
+  font-family: 'Prompt', sans-serif;
+}
+
+table.list {
+  text-align: center;
+  width: 100%;
+}
+
+#storeList {
+  background-color: rgba(241, 241, 241, 0.4) !important;
+  background-image: none;
+  text-shadow: -0.5px 0 white, 0 0.5px white, 0.5px 0 white, 0 -0.5px white;   /* OR -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.167); */
+
+}
+
+#storeList th {
+  margin-left: 2px solid black;
+  margin-right: 2px solid black;
+  text-align: center;
+}
+
+td {
+  padding: 8px 15px;
+}
+
+/* tr:nth-child(even), table.list thread> tr {
+  background-color: aqua;
+} */
+
+input[type="text"], input[type="number"] {
+  width: 81%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+input[type="submit"], input[type="reset"] {
+  background: rgb(239, 223, 48);
+  padding: 6px 12px;
+  margin: 15px 0px 10px;
+  display: inline-block;
+  border: none;
+  border-radius: 30px;
+  font-size: large;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.291);
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover {
+  background: rgb(202, 186, 12);
+}
