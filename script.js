@@ -1,4 +1,96 @@
 const selectedRow = null;
+let countries; // will contain fetched data
+const countriesList = document.getElementById("countries");
+const capital = document.getElementById("capital");
+const dialingCode = document.getElementById("dialing-code");
+const population = document.getElementById("population");
+const language = document.getElementById("language");
+const currency = document.getElementById("currency");
+const region = document.getElementById("region");
+// const flag = document.getElementById("flag-container");
+const flag = document.querySelector("#flag-container img"); //.alt =`Flag of ${countriesData.name}`;
+
+// console.log(window.name = "foo");
+// console.log(1);
+// fetch("https://restcountries.com/v3.1/all")
+//   .then(function(response) {
+//     console.log(response);
+//     // console.log(2);
+//     return response.json();
+//   })
+//   .then(function(data){
+//     // console.log(3);
+//     console.log(data);
+//     // return resp.json(); resp is not defined
+//     initialize(data);
+//   })
+//   // console.log(4);
+//   .catch(function(error){
+//     // alert("Error: " + error);
+//     console.log("Error", + error)
+//   });
+
+// EVENT LISTENER
+countriesList.addEventListener("change", function(e) {
+  console.log(e.target.value);
+  displayCountryInfo(e.target.value)
+});
+
+// countriesList.addEventListener("change", e => displayCountryInfo(e.target.value));
+
+// countriesList.addEventListener("change", newCountrySelect);
+// function newCountrySelect(e) {
+//   displayCountryInfo(e.target.value);
+// }
+
+
+fetch("https://restcountries.com/v3.1/all")
+  // .then((response) => {return response.json();} )
+  .then(response => response.json())
+  // .then(data => console.log(data))
+  .then(data => initialize(data))
+  .catch(error => console.log("Error", error));
+
+function initialize(countriesData) {
+  countries = countriesData.sort()
+  let options = "";
+  // for(let i = 0; i < countries.length; i++) {
+  //   options += `<option value="${countries[i].cca3}">${countries[i].name.common} (${countries[i].idd.root}${countries[i].idd.suffixes})</option>`;
+  //   capital.innerHTML = `${countries[i].capital}`
+  // }
+  countries.forEach(country => options += `<option value="${country.cca3}">${country.name.common} (${country.idd.root}${country.idd.suffixes})</option>`);
+  countriesList.innerHTML = options;
+  // document.getElementById("countries").innerHTML = options;
+
+  displayCountryInfo("AFG");
+  // console.log('data: ' + options)
+  console.log((countries[1].idd.root))
+  console.log(countries[1].cca3)
+}
+
+function displayCountryInfo(countryByCca3) {
+  const countryData = countries.find(country => country.cca3 === countryByCca3);
+  console.log(countryData)
+  flag.src = countryData.flags.png
+  flag.alt = `Flag of ${countryData.name.common}`
+  capital.innerHTML = countryData.capital
+  dialingCode.innerHTML = countryData.idd.root + countryData.idd.suffixes
+  population.innerHTML = countryData.population.toLocaleString("en-US")
+  // language.innerHTML = countryData.languages
+  language.innerHTML = (JSON.stringify(countryData.languages)).replaceAll('"', '').replaceAll('{', '').replaceAll('}', '').replaceAll(':', ': ').replaceAll(',', ', ')
+  // currency.innerHTML = countryData.currencies.map(c => `${c.name} ${c.symbol}`)
+  currency.innerHTML = (JSON.stringify(countryData.currencies)).replaceAll('"', '').replaceAll('{', '').replaceAll('}', '').replaceAll(':', ': ').replaceAll(',', ', ')
+  region.innerHTML = countryData.region
+  // for(let key in currency) {
+  //   console.log(currency[key.length -1])
+  // }
+  console.log(JSON.stringify(countries[1].currencies))
+    console.log((JSON.stringify(countries[1].languages)).replaceAll('"', '').replace('{', '').replace('}', '').replace(':', ' : '))
+
+  console.log(countries[1].languages)
+  // flag.innerHTML = `<img src="${countryData.flags.png}" alt="">`
+
+}
 
 function onFormSubmit(e) {
   event.preventDefault();

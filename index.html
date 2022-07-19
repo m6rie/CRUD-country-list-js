@@ -13,10 +13,30 @@
   </head>
 
   <body>
-    <table>
+    <div id="main-container">
+      <div id="flag-container">
+        <img src="" alt="">
+      </div>
+      <div id="info-container">
+        <select id="countries">
+          <!-- <option value="a">A</option>
+          <option value="b">B</option>
+          <option value="c">C</option> -->
+        </select>
+        <!-- <p>Flag: <span id="flag"></span></p> -->
+        <p>Capital: <span id="capital"></span></p>
+        <p>Dialing Code: <span id="dialing-code"></span></p>
+        <p>Population: <span id="population"></span></p>
+        <p>Language: <span id="language"></span></p>
+        <p>Currency: <span id="currency"></span></p>
+        <p>Region: <span id="region"></span></p>
+      </div>
+    </div>
+
+    <!-- <table>
       <tr>
         <td>
-          <form autocomplete="off" onsubmit="onFormSubmit()">
+          <form method="get" autocomplete="off" onsubmit="onFormSubmit()">
             <div>
               <label for="order">Order</label>
               <input type="number" name="order" id="order">
@@ -62,7 +82,7 @@
           </td>
         </td>
       </tr>
-    </table>
+    </table> -->
     <script type="text/javascript" src="script.js"></script>
   </body>
 </html>
