@@ -1,25 +1,26 @@
-table {
-  width: 80%;
-  margin: 40px auto;
-  background: rgb(131, 131, 240);
-  background-image: url("https://www.radfordmedicalpractice.co.uk/wp-content/uploads/sites/622/2022/02/travel.jpeg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-radius: 15px;
-  font-family: 'Prompt', sans-serif;
+html, body {
+  width: 100%;
+  height: 100%;
+  /* padding: 10px; */
+  margin: 0px;
+  font-family: 'Open Sans', sans-serif;
+  /* background-color: rgb(233, 238, 235); */
 }
 
-table.list {
+header {
   text-align: center;
-  width: 100%;
+  padding: 5px;
+  background-color: rgba(127, 255, 165, 0.573);
+  font-size: large;
 }
 
 #storeList {
   background-color: rgba(241, 241, 241, 0.4) !important;
   background-image: none;
   text-shadow: -0.5px 0 white, 0 0.5px white, 0.5px 0 white, 0 -0.5px white;   /* OR -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.167); */
-
+  width: 95%;
+  margin: 10px;
+  border-radius: 10px;
 }
 
 #storeList th {
@@ -32,41 +33,63 @@ td {
   padding: 8px 15px;
 }
 
-/* tr:nth-child(even), table.list thread> tr {
-  background-color: aqua;
-} */
+#main-container {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  border: 0%;
+  justify-content: center;
+  align-items: center;
 
-input[type="text"], input[type="number"] {
-  width: 81%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border-radius: 4px;
 }
 
-input[type="submit"], input[type="reset"] {
-  background: rgb(239, 223, 48);
-  padding: 6px 12px;
-  margin: 15px 0px 10px;
-  display: inline-block;
-  border: none;
-  border-radius: 30px;
-  font-size: large;
-  cursor: pointer;
-  outline: none;
-  box-shadow: 1px 1px rgba(0, 0, 0, 0.291);
+#info-container {
+  /* display: flex;
+  flex-direction: column; */
+  /* justify-content: space-around; */
+  width: 30%;
+  margin: 10px;
+  /* align-items: center; */
+  /* flex-wrap: wrap; */
 }
 
-input[type="submit"]:hover, input[type="reset"]:hover {
-  background: rgb(202, 186, 12);
+#choice-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10px;
 }
 
 #flag-container {
-  width: 500px;
-  height: 250px;
-  /* background-color: red; */
+  width: 30%;
 }
 
 select {
-  width: 500px;
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  margin: 5px;
+  margin: 5% 40% 2% 40%;
+}
+
+#flag-size {
+  width: 80px;
+  height: 50px;
+}
+
+p {
+  font-size: medium;
+}
+
+p span {
+  font-size: small;
+}
+
+#submit-button {
+  padding: 10px 9px;
+  font-weight: 600;
+  font-size: large;
+  margin: 15px;
+  /* border-radius: 20px; */
 }

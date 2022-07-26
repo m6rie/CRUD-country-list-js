@@ -1,0 +1,23 @@
+{
+  "name": "crud-country-list",
+  "version": "1.0.0",
+  "description": "First javascript app using the CRUD operations",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m6rie/CRUD-country-list-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/m6rie/CRUD-country-list-js/issues"
+  },
+  "homepage": "https://github.com/m6rie/CRUD-country-list-js#readme",
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "tedious": "^15.0.0"
+  }
+}

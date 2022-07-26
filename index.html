@@ -1,88 +1,60 @@
 <!-- an app to create your travel plan and list the countries you want to go to -->
-<!-- the columns will be | Order of visit | Country name | Country Alpha-3 code | Country phone code | Country's continent |-->
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Travel list</title>
+    <title>Info Travel List</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/203bddeb95.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
-    <div id="main-container">
-      <div id="flag-container">
-        <img src="" alt="">
+    <header>Info Travel List</header>
+      <!-- <div id="choice-container"> -->
+        <!-- <select name="countryName" id="countryName"></select>
+        <button id="submit-button">Add Country</button> -->
+      <!-- </div> -->
+      <select name="countryName" id="countryName"></select>
+
+      <div id="main-container">
+        <div id="flag-container">
+          <div id="flag">
+            <img src="" alt="">
+          </div>
+
+          <button id="submit-button">Add Country</button>
+        </div>
+        <div id="info-container">
+          <p>Capital <br> <span id="capital"></span></p>
+          <p>Dialing Code <br> <span id="dialing-code"></span></p>
+          <p>Population <br> <span id="population"></span></p>
+          <p>Languages <br> <span id="language"></span></p>
+          <p>Currency <br> <span id="currency"></span></p>
+          <p>Region <br> <span id="region"></span></p>
+        </div>
       </div>
-      <div id="info-container">
-        <select id="countries">
-          <!-- <option value="a">A</option>
-          <option value="b">B</option>
-          <option value="c">C</option> -->
-        </select>
-        <!-- <p>Flag: <span id="flag"></span></p> -->
-        <p>Capital: <span id="capital"></span></p>
-        <p>Dialing Code: <span id="dialing-code"></span></p>
-        <p>Population: <span id="population"></span></p>
-        <p>Language: <span id="language"></span></p>
-        <p>Currency: <span id="currency"></span></p>
-        <p>Region: <span id="region"></span></p>
-      </div>
-    </div>
-
-    <!-- <table>
-      <tr>
-        <td>
-          <form method="get" autocomplete="off" onsubmit="onFormSubmit()">
-            <div>
-              <label for="order">Order</label>
-              <input type="number" name="order" id="order">
-            </div>
-            <div>
-              <label for="countryName">Country Name</label>
-              <input type="text" name="countryName" id="countryName">
-            </div>
-            <div>
-              <label for="alphaCode">Alpha-3 Code</label>
-              <input type="text" name="alphaCode" id="alphaCode">
-            </div>
-            <div>
-              <label for="phoneCode">Phone Code</label>
-              <input type="number" name="phoneCode" id="phoneCode">
-            </div>
-            <div>
-              <label for="continent">Continent</label>
-              <input type="text" name="continent" id="continent">
-            </div>
-
-            <div class="form-action-button">
-              <input type="submit" value="Submit">
-              <input type="reset" value="Reset">
-            </div>
-          </form>
-
-          <td>
-            <table class="list" id="storeList">
-              <thead>
-                <tr>
-                  <th>Order</th>
-                  <th>Country Name</th>
-                  <th>Alpha-3 Code</th>
-                  <th>Phone Code</th>
-                  <th>Continent</th>
-                </tr>
-              </thead>
-              <tbody>
-
-              </tbody>
-            </table>
-          </td>
-        </td>
-      </tr>
-    </table> -->
+      <td>
+        <table class="list" id="storeList">
+          <thead>
+            <tr>
+              <!-- <th>Order</th> -->
+              <th>Country Name</th>
+              <th id="flag-size">Flag</th>
+              <th>Capital</th>
+              <th>Dialing Code</th>
+              <th>Population</th>
+              <th>Languages</th>
+              <th>Currency</th>
+              <th>Region</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </td>
     <script type="text/javascript" src="script.js"></script>
   </body>
 </html>
