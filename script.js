@@ -1,9 +1,7 @@
-// SQL or local storage
 // let mysql = require('mysql');
 // sort by categories
 // update Notes
 // drag and drop rows
-// Regex Languages and Currencies
 
 let selectedRow = null;
 let countries; // will contain fetched data
@@ -22,23 +20,18 @@ let noteInput = document.createElement("input")
 
 // EVENT LISTENERS
 countryName.addEventListener("change", function(e) {
-  console.log(e.target.value);
   displayCountryInfo(e.target.value)
   noteInput.value = ""
 });
 
 submitButton.addEventListener("click", function(e) {
-  // createTable()
   insertNewRecord()
   function singleCall(fn) {
     let called = false
     return function() {
       if(!called) {
-        // called = true
-        // return fn()
         return createTable()
       }
-      // return
     }
   }
   createTable = singleCall(createTable())
@@ -51,7 +44,9 @@ fetch("https://restcountries.com/v3.1/all")
   .catch(error => console.log("Error", error));
 
 function initialize(countriesData) {
-  countries = countriesData.sort()
+  // countriesData = Object.values(countriesData).sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
+
+  countries = countriesData
   let options = `<option value="" disabled selected hidden>Select a country</option>`;
   countries.forEach(country => options += `<option value="${country.name.common}">${country.name.common}</option>`);
   countryName.innerHTML = options;
@@ -87,8 +82,8 @@ function displayCountryInfo(countryByName) {
   dialingCode.innerHTML = `${countryData.idd.root + countryData.idd.suffixes}`
   dialingCode.innerHTML = `${countryData.idd.root + countryData.idd.suffixes}`
   population.innerHTML = `${countryData.population.toLocaleString("en-US")}`
-  language.innerHTML = `${(JSON.stringify(countryData.languages)).replaceAll('"', '').replaceAll('{', '').replaceAll('}', '').replaceAll(':', ': ').replaceAll(',', ', ')}`
-  currency.innerHTML = `${(JSON.stringify(countryData.currencies)).replaceAll('"', '').replaceAll('{', '').replaceAll('}', '').replaceAll(':', ': ').replaceAll(',', ', ')}`
+  language.innerHTML = `${Object.values(countryData.languages).join(", ")}`
+  currency.innerHTML = `${Object.values(Object.values(countryData.currencies)[0])[0]}`
   region.innerHTML = `${countryData.region}`
 }
 
@@ -130,14 +125,12 @@ function insertNewRecord(data) {
   const reg2 = /[A-Z]{3}\D/
   const table = document.getElementById("storeList").getElementsByTagName("tbody")[0];
   const newRow = table.insertRow(table.length);
-  console.log(table)
   const cell1 = newRow.insertCell(0);
         cell1.innerHTML = document.getElementById("countryName").value;
   const cell2 = newRow.insertCell(1);
         cell2.innerHTML = document.getElementById("flag").innerHTML;
   const cell3 = newRow.insertCell(2);
         cell3.innerHTML = document.getElementById("capital").innerHTML;
-        console.log(document.getElementById("capital").innerHTML)
   const cell4 = newRow.insertCell(3);
         cell4.innerHTML = document.getElementById("dialing-code").innerText;
   const cell5 = newRow.insertCell(4);
